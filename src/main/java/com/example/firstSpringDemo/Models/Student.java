@@ -1,9 +1,9 @@
 package com.example.firstSpringDemo.Models;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
-@Table(name = "my_Dataapi.Students")
 public class Student {
 
     public String getName() {
@@ -36,8 +36,9 @@ public class Student {
     }
 
     String rollNumber;
-
-
+@OneToMany
+@JoinColumn(referencedColumnName ="id")
+List<Student> students;
 
 
 

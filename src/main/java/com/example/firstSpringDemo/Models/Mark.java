@@ -12,8 +12,9 @@ public class Mark {
     public void setId(Integer id) {
         this.id = id;
     }
-@Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
 
 
@@ -36,9 +37,7 @@ public class Mark {
     Integer obtainedMarks;
 
     String grade;
-
-
-    }
+}
 
 
 

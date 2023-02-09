@@ -1,9 +1,6 @@
 package com.example.firstSpringDemo.Models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.List;
 @Entity
 public class Course {
@@ -25,17 +22,25 @@ public class Course {
         this.courseName = courseName;
     }
 
-    public List<Mark> getMarkList() {
-        return markList;
-    }
 
-    public void setMarkList(List<Mark> markList) {
-        this.markList = markList;
-    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
+
+    @Column(name = "course_name")
     String courseName;
-    List<Mark> markList;
+
+    public List<Course> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(List<Course> courses) {
+        this.courses = courses;
+    }
+
+    @OneToMany
+    @JoinColumn(referencedColumnName ="id")
+    List<Course> courses;
 
 }
