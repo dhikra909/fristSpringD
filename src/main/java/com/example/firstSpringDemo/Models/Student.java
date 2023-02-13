@@ -36,10 +36,12 @@ public class Student {
     }
 
     String rollNumber;
-@OneToMany
-@JoinColumn(referencedColumnName ="id")
-List<Student> students;
-
+//@OneToMany
+//@JoinColumn(referencedColumnName ="id")
+//List<Student> students;
+    @ManyToOne
+    @JoinColumn(name = "school_id", referencedColumnName ="id")
+    School school;
 
 
 }

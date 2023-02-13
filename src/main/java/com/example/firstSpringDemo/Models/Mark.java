@@ -37,6 +37,11 @@ public class Mark {
     Integer obtainedMarks;
 
     String grade;
+
+
+    @ManyToOne
+    @JoinColumn(name = "course_id", referencedColumnName ="id")
+   Course course;
 }
 
 

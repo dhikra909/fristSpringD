@@ -2,6 +2,7 @@ package com.example.firstSpringDemo.Models;
 
 import javax.persistence.*;
 import java.util.List;
+
 @Entity
 public class Course {
 
@@ -23,7 +24,6 @@ public class Course {
     }
 
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
@@ -31,16 +31,19 @@ public class Course {
     @Column(name = "course_name")
     String courseName;
 
-    public List<Course> getCourses() {
-        return courses;
-    }
+//    public List<Course> getCourses() {
+//        return courses;
+//    }
+//
+//    public void setCourses(List<Course> courses) {
+//        this.courses = courses;
+//    }
 
-    public void setCourses(List<Course> courses) {
-        this.courses = courses;
-    }
+//    @OneToMany
+//    @JoinColumn(referencedColumnName ="id")
+//    List<Course> courses;
 
-    @OneToMany
-    @JoinColumn(referencedColumnName ="id")
-    List<Course> courses;
-
+    @ManyToOne
+    @JoinColumn(name = "student_id", referencedColumnName = "id")
+    Student student;
 }
