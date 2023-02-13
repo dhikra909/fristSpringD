@@ -19,11 +19,11 @@ public interface CourselRepository  extends CrudRepository<Course, Integer > {
 
 
     @Query(value = "SELECT s from Course s where s.id = :id")
-    Course getCourseById(@Param("id") Integer id);
+    List<Course> getCourseById(@Param("id") Integer id);
 
 
     @Query(value = "SELECT s from Course s where s.courseName = :courseName")
-    Course getCourseByCourseName(@Param("courseName") String courseName);
+    List<Course> getCourseByCourseName(@Param("courseName") String courseName);
 
 
 

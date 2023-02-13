@@ -17,13 +17,13 @@ public class SchoolService {
     }
 
 
-    public School getSchoolById(Integer id) {
-        School school = schoolRepository.getSchoolById(id);
+    public List<School> getSchoolById(Integer id) {
+        List<School> school = schoolRepository.getSchoolById(id);
         return school;
     }
 
-    public School getSchoolBySchoolName(String schoolName) {
-        School school = schoolRepository.getSchoolBySchoolName(schoolName);
+    public List<School> getSchoolBySchoolName(String schoolName) {
+        List<School> school = schoolRepository.getSchoolBySchoolName(schoolName);
         return school;
     }
 

@@ -66,27 +66,27 @@ public class Hicontroler {
 //
 //        }
     @RequestMapping(value = "school/getById", method = RequestMethod.GET)
-    public School getSchoolById(@RequestParam Integer id) {
-        School school = schoolService.getSchoolById(id);
+    public List<School> getSchoolById(@RequestParam Integer id) {
+        List<School> school = schoolService.getSchoolById(id);
         return school;
     }
 
     @RequestMapping(value = "student/getById", method = RequestMethod.GET)
-    public Student getStudentById(@RequestParam Integer id) {
-        Student student = studentService.getStudentById(id);
+    public List<Student> getStudentById(@RequestParam Integer id) {
+        List<Student> student = studentService.getStudentById(id);
         return student;
     }
 
 
     @RequestMapping(value = "mark/getById", method = RequestMethod.GET)
-    public Mark getMarkById(@RequestParam Integer id) {
-        Mark mark = markService.getMarkById(id);
+    public List<Mark> getMarkById(@RequestParam Integer id) {
+        List<Mark> mark = markService.getMarkById(id);
         return mark;
     }
 
     @RequestMapping(value = "course/getById", method = RequestMethod.GET)
-    public Course getCourseById(@RequestParam Integer id) {
-        Course course = courseService.getCourseById(id);
+    public List<Course> getCourseById(@RequestParam Integer id) {
+        List<Course> course = courseService.getCourseById(id);
         return course;
     }
 
@@ -99,27 +99,27 @@ public class Hicontroler {
 
 
     @RequestMapping(value = "school/getSchoolBySchoolName", method = RequestMethod.GET)
-    public School getSchoolBySchoolName(@RequestParam String schoolName) {
-        School school = schoolService.getSchoolBySchoolName(schoolName);
+    public List<School> getSchoolBySchoolName(@RequestParam String schoolName) {
+        List<School> school = schoolService.getSchoolBySchoolName(schoolName);
         return school;
     }
 
     @RequestMapping(value = "student/getStudentByStudentName", method = RequestMethod.GET)
-    public Student getStudentByStudentName(@RequestParam String studentName) {
-        Student student = studentService.getStudentByStudentName(studentName);
+    public List<Student> getStudentByStudentName(@RequestParam String studentName) {
+        List<Student> student = studentService.getStudentByStudentName(studentName);
         return student;
     }
 
 
     @RequestMapping(value = "mark/getMarkByMarkgrade", method = RequestMethod.GET)
-    public Mark getMarkByMarkgrade(@RequestParam String markgrade) {
-        Mark mark = markService.getMarkByMarkGrade(markgrade);
+    public List<Mark> getMarkByMarkgrade(@RequestParam String markgrade) {
+        List<Mark> mark = markService.getMarkByMarkGrade(markgrade);
         return mark;
     }
 
     @RequestMapping(value = "course/getCourseByCourseName", method = RequestMethod.GET)
-    public Course getCourseByCourseName(@RequestParam String courseName) {
-        Course course = courseService.getCourseByCourseName(courseName);
+    public List<Course> getCourseByCourseName(@RequestParam String courseName) {
+        List<Course> course = courseService.getCourseByCourseName(courseName);
         return course;
     }
 

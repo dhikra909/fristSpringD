@@ -28,13 +28,13 @@ public class StudentService {
         return studentrepositores.getAllStudents();
     }
 
-    public Student getStudentById(Integer id) {
-        Student student = studentrepositores.getStudentById(id);
+    public List<Student> getStudentById(Integer id) {
+        List<Student> student = studentrepositores.getStudentById(id);
         return student;
     }
 
-    public Student getStudentByStudentName(String studentName) {
-        Student student = studentrepositores.geStudentByStudentName(studentName);
+    public List<Student> getStudentByStudentName(String studentName) {
+        List<Student> student = studentrepositores.geStudentByStudentName(studentName);
         return student;
     }
 

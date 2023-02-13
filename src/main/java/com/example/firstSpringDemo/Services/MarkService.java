@@ -22,13 +22,13 @@ public class MarkService {
     }
 
 
-    public Mark getMarkById(Integer id) {
-        Mark mark = markRepository.getMarkById(id);
+    public List<Mark> getMarkById(Integer id) {
+        List<Mark> mark = markRepository.getMarkById(id);
         return mark;
     }
 
-    public Mark getMarkByMarkGrade(String markGrade) {
-        Mark mark = markRepository.getMarkByMarkGrade(markGrade);
+    public List<Mark> getMarkByMarkGrade(String markGrade) {
+        List<Mark> mark = markRepository.getMarkByMarkGrade(markGrade);
         return mark;
     }
 

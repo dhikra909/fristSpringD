@@ -21,13 +21,13 @@ public class CourseService {
     }
 
 
-    public Course getCourseById(Integer id) {
-        Course course = courseRepository.getCourseById(id);
+    public List<Course> getCourseById(Integer id) {
+        List<Course> course = courseRepository.getCourseById(id);
         return course;
     }
 
-    public Course getCourseByCourseName(String courseName) {
-        Course course = courseRepository.getCourseByCourseName(courseName);
+    public List<Course> getCourseByCourseName(String courseName) {
+        List<Course> course = courseRepository.getCourseByCourseName(courseName);
         return course;
     }
 
