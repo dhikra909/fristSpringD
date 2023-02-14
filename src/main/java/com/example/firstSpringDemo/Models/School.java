@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-public class School {
+public class School extends BaseEntity {
 
     public Integer getId() {
         return id;
@@ -22,13 +22,7 @@ public class School {
         this.name = name;
     }
 
-//    public List<Student> getStudent() {
-//        return student;
-//    }
-//
-//    public void setStudent(List<Student> student) {
-//        this.student = student;
-//    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
@@ -36,18 +30,5 @@ public class School {
     @Column(name = "School_name")
     String name ;
 
-//    @OneToMany
-//            @JoinColumn(referencedColumnName = "id")
-//    List<Student> student;
 
-//    public List<Course> getCourses() {
-//        return courses;
-//    }
-//
-//    public void setCourses(List<Course> courses) {
-//        this.courses = courses;
-//    }
-//@OneToMany
-//@JoinColumn(referencedColumnName ="id")
-//    List<Course> courses;
 }

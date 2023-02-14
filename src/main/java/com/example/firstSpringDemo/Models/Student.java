@@ -4,7 +4,8 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-public class Student {
+
+public class Student extends BaseEntity {
 
     public String getName() {
         return name;

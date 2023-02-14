@@ -11,11 +11,10 @@ import com.example.firstSpringDemo.Services.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-public class Hicontroler {
+public class GeneralController {
     @Autowired
     StudentService studentService;
 
@@ -124,7 +123,11 @@ public class Hicontroler {
     }
 
 
-
+    @RequestMapping(value = "student/getBySchoolId", method = RequestMethod.GET)
+    public List<Student> getStudentBySchoolId(@RequestParam Integer schoolId) {
+        List<Student> student = studentService.getStudentBySchoolId(schoolId);
+        return student;
+    }
 
 
 

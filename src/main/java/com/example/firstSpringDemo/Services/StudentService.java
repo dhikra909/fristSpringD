@@ -6,6 +6,8 @@ import com.example.firstSpringDemo.Repositores.Studentrepositores;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 
@@ -38,7 +40,10 @@ public class StudentService {
         return student;
     }
 
-
+    public List<Student> getStudentBySchoolId(Integer schoolId) {
+        List<Student> student = studentrepositores.geStudentBySchoolId(schoolId);
+        return student;
+    }
 
 
 

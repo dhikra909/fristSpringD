@@ -3,7 +3,7 @@ package com.example.firstSpringDemo.Models;
 import javax.persistence.*;
 import java.util.List;
 @Entity
-public class Mark {
+public class Mark extends BaseEntity{
 
     public Integer getId() {
         return id;

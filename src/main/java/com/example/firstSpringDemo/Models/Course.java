@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-public class Course {
+public class Course extends BaseEntity {
 
 
     public Integer getId() {
@@ -31,17 +31,6 @@ public class Course {
     @Column(name = "course_name")
     String courseName;
 
-//    public List<Course> getCourses() {
-//        return courses;
-//    }
-//
-//    public void setCourses(List<Course> courses) {
-//        this.courses = courses;
-//    }
-
-//    @OneToMany
-//    @JoinColumn(referencedColumnName ="id")
-//    List<Course> courses;
 
     @ManyToOne
     @JoinColumn(name = "student_id", referencedColumnName = "id")
