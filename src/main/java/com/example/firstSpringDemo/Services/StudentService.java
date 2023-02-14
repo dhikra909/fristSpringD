@@ -44,9 +44,15 @@ public class StudentService {
         List<Student> student = studentrepositores.geStudentBySchoolId(schoolId);
         return student;
     }
+    public List<Student> getAllIsActive() {
+        List<Student> student = studentrepositores.getIsActive();
+        return student;
+    }
 
-
-
+    public List<Student> getAllIsInActive() {
+        List<Student> student = studentrepositores.getIsInActive();
+        return student;
+    }
 
 
 }

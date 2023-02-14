@@ -25,7 +25,10 @@ public interface CourselRepository  extends CrudRepository<Course, Integer > {
     @Query(value = "SELECT s from Course s where s.courseName = :courseName")
     List<Course> getCourseByCourseName(@Param("courseName") String courseName);
 
+    @Query(value = "SELECT s from Course s where s.isActive = 1")
+    List<Course> getIsActive();
 
 
-
+    @Query(value = "SELECT s from Course s where s.isActive = 0")
+    List<Course> getIsInActive();
 }

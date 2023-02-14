@@ -1,5 +1,6 @@
 package com.example.firstSpringDemo.Services;
 
+import com.example.firstSpringDemo.Models.Mark;
 import com.example.firstSpringDemo.Models.School;
 import com.example.firstSpringDemo.Repositores.SchoolRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +28,14 @@ public class SchoolService {
         return school;
     }
 
-
-
+    public List<School> getAllIsActive() {
+        List<School> school = schoolRepository.getIsActive();
+        return school;
+    }
+    public List<School> getAllIsInActive() {
+        List<School> school = schoolRepository.getIsInActive();
+        return school;
+    }
 
 
 

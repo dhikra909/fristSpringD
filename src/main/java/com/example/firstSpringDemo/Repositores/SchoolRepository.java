@@ -1,5 +1,6 @@
 package com.example.firstSpringDemo.Repositores;
 
+import com.example.firstSpringDemo.Models.Mark;
 import com.example.firstSpringDemo.Models.School;
 import com.example.firstSpringDemo.Models.Student;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -24,8 +25,11 @@ public interface SchoolRepository  extends CrudRepository<School, Integer > {
   List<School> getSchoolBySchoolName(@Param("schoolName") String schoolName);
 
 
+  @Query(value = "SELECT s from School s where s.isActive = 1")
+  List<School> getIsActive();
 
-
+  @Query(value = "SELECT s from School s where s.isActive = 0")
+  List<School> getIsInActive();
 
 
 

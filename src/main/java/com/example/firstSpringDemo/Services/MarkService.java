@@ -32,6 +32,16 @@ public class MarkService {
         return mark;
     }
 
+    public List<Mark> getAllIsActive() {
+        List<Mark> mark = markRepository.getIsActive();
+        return mark;
+    }
+
+    public List<Mark> getAllIsInActive() {
+        List<Mark> mark = markRepository.getIsInActive();
+        return mark;
+    }
+
 
 
 
