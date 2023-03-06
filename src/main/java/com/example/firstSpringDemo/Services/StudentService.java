@@ -9,6 +9,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -30,8 +34,8 @@ public class StudentService {
         return studentrepositores.getAllStudents();
     }
 
-    public List<Student> getStudentById(Integer id) {
-        List<Student> student = studentrepositores.getStudentById(id);
+    public Student getStudentById(Integer id) {
+        Student student = studentrepositores.getStudentById(id);
         return student;
     }
 
@@ -53,6 +57,55 @@ public class StudentService {
         List<Student> student = studentrepositores.getIsInActive();
         return student;
     }
+
+    public List<Student> getAllLastRow() {
+        List<Student> student = studentrepositores.getLatestRow();
+        return student;
+    }
+
+    public List<Student> getAllLatestUpdated() {
+        List<Student> student = studentrepositores.getLatestUpdated();
+        return student;
+    }
+
+    public List<Student> getStudentAfterCreatedDate(String data) throws ParseException {
+        DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        Date convertedDataFromStringToDataFormat = formatter.parse(data);
+        List<Student> student = studentrepositores.getStudentAfterCreatedDate(convertedDataFromStringToDataFormat);
+        return student;
+    }
+
+    public void deleteById(Integer id){
+        Student student = studentrepositores.getStudentById(id);
+        student.setIsActive(false);
+        studentrepositores.save(student);
+    }
+
+
+    public void setAllIsActiveFalse() {
+        List<Student> student = studentrepositores.getAllStudents();
+        for (Student s : student){
+            s.setIsActive(false);
+        }
+        studentrepositores.saveAll(student);
+    }
+
+    public void setAllIsActiveFalseAfterCreatdDate(String creatdDate) throws ParseException {
+        DateFormat formatter = new SimpleDateFormat( "yyyy_mm_dd");
+        Date creatdDatee = formatter.parse(creatdDate);
+        List<Student> student = studentrepositores.getStudentByCreatedDate(creatdDatee);
+        for (Student s : student) {
+            s.setIsActive(false);
+        }
+        studentrepositores.saveAll(student);
+    }
+
+
+
+
+
+
+
 
 
 }

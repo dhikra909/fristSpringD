@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.text.ParseException;
 import java.util.List;
 
 @RestController
@@ -28,8 +29,8 @@ StudentController {
     }
 
     @RequestMapping(value = "/getById", method = RequestMethod.GET)
-    public List<Student> getStudentById(@RequestParam Integer id) {
-        List<Student> student = studentService.getStudentById(id);
+    public Student getStudentById(@RequestParam Integer id) {
+        Student student = studentService.getStudentById(id);
         return student;
     }
 
@@ -57,8 +58,44 @@ StudentController {
         return student;
     }
 
+    @RequestMapping(value = "/ getLatestRow", method = RequestMethod.GET)
+    public List<Student> getLatestRow() {
+        List<Student> student = studentService.getAllLastRow();
+        return student;
+    }
 
 
+
+    @RequestMapping(value = "/getIsUpdated", method = RequestMethod.GET)
+    public List<Student> getAllLatestUpdated() {
+        List<Student> student = studentService.getAllLatestUpdated();
+        return student;
+    }
+
+    @RequestMapping(value = "/getSchoolCreatedAfterDate" , method = RequestMethod.GET)
+    public List<Student> getSchoolCreatedAfterDate(@RequestParam String createdData) throws ParseException {
+        List<Student> student = studentService.getStudentAfterCreatedDate(createdData);
+        return student;
+    }
+
+    @RequestMapping(value = "/deleteById", method = RequestMethod.GET)
+    public void deleteById(Integer id) {
+        studentService.deleteById(id);
+
+    }
+
+
+
+    @RequestMapping (value = "/setAllIsActiveFalse")
+    public void setAllIsActive(){
+        studentService.setAllIsActiveFalse();
+    }
+
+    @RequestMapping(value = "/setAllIsActiveFalseAfterCreatdDate")
+    public void setAllIsActiveFalseAfterCreatdDate(@RequestParam String createdData) throws ParseException {
+        studentService.getStudentAfterCreatedDate(createdData);
+
+    }
 
 
 }
