@@ -95,5 +95,13 @@ public class SchoolController {
 
     }
 
+    @RequestMapping(value = "/setAllIsActiveFalseBySchoolName")
+    public void setAllIsActiveFalseBySchoolName(String schoolName)  {
+        schoolService.setAllIsActiveFalseBySchoolName(schoolName);
+
+    }
+
+
+
 
 }

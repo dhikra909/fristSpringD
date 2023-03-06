@@ -91,6 +91,13 @@ public class CourseService {
         courseRepository.saveAll(course);
     }
 
+    public void setAllIsActiveFalseByCourseName(String courseName) {
+        List<Course> course = courseRepository.getCourseByCourseName(courseName);
+        for (Course s : course){
+            s.setIsActive(false);
+        }
+        courseRepository.saveAll(course);
+    }
 
 
 

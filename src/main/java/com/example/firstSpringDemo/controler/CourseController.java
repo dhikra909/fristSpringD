@@ -92,6 +92,11 @@ public class CourseController {
     }
 
 
+    @RequestMapping(value = "/setAllIsActiveFalseByCourseName")
+    public void setAllIsActiveFalseByCourseName(String courseName)  {
+        courseService.setAllIsActiveFalseByCourseName(courseName);
+
+    }
 
 
 

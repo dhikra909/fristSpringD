@@ -97,5 +97,14 @@ StudentController {
 
     }
 
+    @RequestMapping(value = "/setAllIsActiveFalseByStudentName")
+    public void setAllIsActiveFalseByStudentName(String studentName)  {
+        studentService.setAllIsActiveFalseByStudentName(studentName);
+
+    }
+
+
+
+
 
 }

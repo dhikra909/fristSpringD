@@ -85,9 +85,13 @@ public class SchoolService {
         schoolRepository.saveAll(school);
     }
 
-
-
-
+    public void setAllIsActiveFalseBySchoolName(String schoolName) {
+        List<School> school = schoolRepository.getSchoolBySchoolName(schoolName);
+        for (School s : school){
+            s.setIsActive(false);
+        }
+        schoolRepository.saveAll(school);
+    }
 
 
 

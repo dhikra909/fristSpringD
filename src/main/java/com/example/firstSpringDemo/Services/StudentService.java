@@ -100,6 +100,14 @@ public class StudentService {
         studentrepositores.saveAll(student);
     }
 
+    public void setAllIsActiveFalseByStudentName(String studentName) {
+        List<Student> student = studentrepositores.geStudentByStudentName(studentName);
+        for (Student s : student){
+            s.setIsActive(false);
+        }
+        studentrepositores.saveAll(student);
+    }
+
 
 
 
