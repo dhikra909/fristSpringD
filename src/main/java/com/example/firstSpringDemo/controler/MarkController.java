@@ -1,6 +1,7 @@
 package com.example.firstSpringDemo.controler;
 
 
+import com.example.firstSpringDemo.Models.Course;
 import com.example.firstSpringDemo.Models.Mark;
 import com.example.firstSpringDemo.Services.MarkService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,6 +49,8 @@ public class MarkController {
         List<Mark> mark = markService.getAllIsInActive();
         return mark;
     }
+
+
 
 
 

@@ -84,5 +84,16 @@ public class SchoolController {
 
 
 
+    @RequestMapping (value = "/setAllIsActiveFalse")
+    public void setAllIsActive(){
+        schoolService.setAllIsActiveFalse();
+    }
+
+    @RequestMapping(value = "/setAllIsActiveFalseAfterCreatdDate")
+    public void setAllIsActiveFalseAfterCreatdDate(@RequestParam String createdData) throws ParseException {
+        schoolService.getSchoolAfterCreatedDate(createdData);
+
+    }
+
 
 }

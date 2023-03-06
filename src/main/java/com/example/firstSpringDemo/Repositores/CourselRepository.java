@@ -9,6 +9,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.Date;
 import java.util.List;
 
 @Repository
@@ -19,7 +20,7 @@ public interface CourselRepository  extends CrudRepository<Course, Integer > {
 
 
     @Query(value = "SELECT s from Course s where s.id = :id")
-    List<Course> getCourseById(@Param("id") Integer id);
+    Course getCourseById(@Param("id") Integer id);
 
 
     @Query(value = "SELECT s from Course s where s.courseName = :courseName")
@@ -32,8 +33,26 @@ public interface CourselRepository  extends CrudRepository<Course, Integer > {
     @Query(value = "SELECT s from Course s where s.isActive = 0")
     List<Course> getIsInActive();
 
+
     @Query(value = "SELECT s FROM Course s WHERE s.id=(SELECT max(s.id) FROM Course s)")
     List<Course> getLatestRow();
+
+    @Query(value = "select s from Course s where s.updatedData=(select max(s.updatedData) from Course s)")
+    List<Course> getLatestUpdated();
+
+    @Query("SELECT s from Course s where s.createdData > :createdData")
+    List<Course> getCourseCreatedAfterDate(@Param("createdData") Date createdData);
+
+    @Query("SELECT s from Course s where s.createdData = :createdData")
+    List<Course> getCourseByCreatedDate(@Param("createdData") Date createdData);
+
+    @Query("SELECT s from Course s where s.updatedData = :updatedData")
+    List<Course> getCourseByUpdatedDate(@Param("updatedData") Date updatedData);
+
+
+
+
+
 
 
 

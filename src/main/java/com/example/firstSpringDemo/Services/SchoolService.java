@@ -67,8 +67,23 @@ public class SchoolService {
     }
 
 
+    public void setAllIsActiveFalse() {
+        List<School> school = schoolRepository.getAllSchools();
+        for (School s : school){
+            s.setIsActive(false);
+        }
+        schoolRepository.saveAll(school);
+    }
 
-
+    public void setAllIsActiveFalseAfterCreatdDate(String creatdDate) throws ParseException {
+        DateFormat formatter = new SimpleDateFormat( "yyyy_mm_dd");
+        Date creatdDatee = formatter.parse(creatdDate);
+        List<School> school = schoolRepository.getSchoolByCreatedDate(creatdDatee);
+        for (School s : school) {
+            s.setIsActive(false);
+        }
+        schoolRepository.saveAll(school);
+    }
 
 
 
