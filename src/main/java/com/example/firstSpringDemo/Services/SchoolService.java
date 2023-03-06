@@ -1,11 +1,14 @@
 package com.example.firstSpringDemo.Services;
 
-import com.example.firstSpringDemo.Models.Mark;
 import com.example.firstSpringDemo.Models.School;
 import com.example.firstSpringDemo.Repositores.SchoolRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -18,8 +21,8 @@ public class SchoolService {
     }
 
 
-    public List<School> getSchoolById(Integer id) {
-        List<School> school = schoolRepository.getSchoolById(id);
+    public School getSchoolById(Integer id) {
+        School school = schoolRepository.getSchoolById(id);
         return school;
     }
 
@@ -32,10 +35,49 @@ public class SchoolService {
         List<School> school = schoolRepository.getIsActive();
         return school;
     }
+
     public List<School> getAllIsInActive() {
         List<School> school = schoolRepository.getIsInActive();
         return school;
     }
+
+
+    public List<School> getAllLastRow() {
+        List<School> school = schoolRepository.getLatestRow();
+        return school;
+    }
+
+    public List<School> getAllLatestUpdated() {
+        List<School> school = schoolRepository.getLatestUpdated();
+        return school;
+    }
+
+    public List<School> getSchoolAfterCreatedDate(String data) throws ParseException {
+        DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        Date convertedDataFromStringToDataFormat = formatter.parse(data);
+        List<School> school = schoolRepository.getSchoolCreatedAfterDate(convertedDataFromStringToDataFormat);
+        return school;
+    }
+
+
+    public void deleteById(Integer id){
+        School school = schoolRepository.getSchoolById(id);
+        school.setIsActive(false);
+        schoolRepository.save(school);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

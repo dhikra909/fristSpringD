@@ -41,6 +41,12 @@ public class CourseService {
         return course;
     }
 
+    public List<Course> getAllLastRow() {
+        List<Course> course = courseRepository.getLatestRow();
+        return course;
+    }
+
+
 
 
 }

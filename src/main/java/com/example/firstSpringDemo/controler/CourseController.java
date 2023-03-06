@@ -50,6 +50,14 @@ public class CourseController {
         return course;
     }
 
+//    @RequestMapping(value = "/getIsInActive", method = RequestMethod.GET)
+//    public List<Course> getIsInActive() {
+//        List<Course> course = courseService.getAllIsInActive();
+//        return course;
+//    }
+
+
+
 
 
 

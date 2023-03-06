@@ -1,6 +1,7 @@
 package com.example.firstSpringDemo.controler;
 
 
+import com.example.firstSpringDemo.Models.Course;
 import com.example.firstSpringDemo.Models.Mark;
 import com.example.firstSpringDemo.Models.School;
 import com.example.firstSpringDemo.Services.SchoolService;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.text.ParseException;
 import java.util.List;
 
 @RestController
@@ -27,8 +29,8 @@ public class SchoolController {
     }
 
     @RequestMapping(value = "/getById", method = RequestMethod.GET)
-    public List<School> getSchoolById(@RequestParam Integer id) {
-        List<School> school = schoolService.getSchoolById(id);
+    public School getSchoolById(@RequestParam Integer id) {
+        School school = schoolService.getSchoolById(id);
         return school;
     }
 
@@ -51,6 +53,36 @@ public class SchoolController {
         List<School> school = schoolService.getAllIsInActive();
         return school;
     }
+
+
+    @RequestMapping(value = "/ getLatestRow", method = RequestMethod.GET)
+    public List<School> getLatestRow() {
+        List<School> school = schoolService.getAllLastRow();
+        return school;
+    }
+
+
+
+    @RequestMapping(value = "/getIsUpdated", method = RequestMethod.GET)
+    public List<School> getAllLatestUpdated() {
+        List<School> school = schoolService.getAllLatestUpdated();
+        return school;
+    }
+
+    @RequestMapping(value = "/getSchoolCreatedAfterDate" , method = RequestMethod.GET)
+    public List<School> getSchoolCreatedAfterDate(@RequestParam String createdData) throws ParseException{
+        List<School> school = schoolService.getSchoolAfterCreatedDate(createdData);
+        return school;
+    }
+
+
+    @RequestMapping(value = "/deleteById", method = RequestMethod.GET)
+    public void deleteById(Integer id) {
+         schoolService.deleteById(id);
+
+    }
+
+
 
 
 }

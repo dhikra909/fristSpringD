@@ -31,4 +31,11 @@ public interface CourselRepository  extends CrudRepository<Course, Integer > {
 
     @Query(value = "SELECT s from Course s where s.isActive = 0")
     List<Course> getIsInActive();
+
+    @Query(value = "SELECT s FROM Course s WHERE s.id=(SELECT max(s.id) FROM Course s)")
+    List<Course> getLatestRow();
+
+
+
+
 }
