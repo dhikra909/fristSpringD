@@ -46,6 +46,8 @@ public interface MarkRepository  extends CrudRepository<Mark, Integer > {
     @Query("SELECT s from Mark s where s.updatedData = :updatedData")
     List<Mark> getMarkByUpdatedDate(@Param("updatedData") Date updatedData);
 
+    @Query(value = "select avg(m.obtainedMarks) from Mark m where m.course.name = :courseName ")
+    Integer getAverageOfMarksByCourseName(@Param("courseName") String courseName);
 
 
 
